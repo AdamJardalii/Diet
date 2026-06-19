@@ -5,7 +5,7 @@ outputs = []
 id = "Holb0bVC1Y7brmW1TcKzE"
 uri = "file://artifacts/dietitian-site/public/hero.png"
 type = "image"
-title = "Hero background kitchen"
+title = "Dietitian in gym kitchen"
 
 [[generated]]
 id = "S8ITCAvAj4tP5OLOgbc-S"
@@ -17,10 +17,28 @@ title = "Dietitian portrait"
 id = "EXoROqRsIwBzfKivyw_D8"
 uri = "file://artifacts/dietitian-site/public/transform1.png"
 type = "image"
-title = "Transformation 1"
+title = "Male bulk transformation"
 
 [[generated]]
 id = "j3el4pISysff4L3F3Cgse"
 uri = "file://artifacts/dietitian-site/public/transform2.png"
 type = "image"
-title = "Transformation 2"
+title = "Female tone transformation"
+
+[[generated]]
+id = "reZoX5QeKfyIZdYOcFf-K"
+uri = "file://artifacts/dietitian-site/public/portrait.png"
+type = "image"
+title = "Female sports nutritionist"
+
+[[generated]]
+id = "THz-Birg8jise673JjyfO"
+uri = "file://artifacts/dietitian-site/public/transform3.png"
+type = "image"
+title = "Male shred transformation"
+
+[[generated]]
+id = "d8OuCoiv9wG-HHJBj9jyf"
+uri = "file://artifacts/dietitian-site/public/transform4.png"
+type = "image"
+title = "Female strength transformation"

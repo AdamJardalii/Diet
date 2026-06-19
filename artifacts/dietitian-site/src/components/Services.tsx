@@ -2,16 +2,18 @@ import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Apple, Activity, HeartPulse, Utensils } from 'lucide-react';
+import { Dumbbell, Flame, UtensilsCrossed, RefreshCw, Trophy, Smartphone } from 'lucide-react';
 
 export default function Services() {
   const { t, language } = useLanguage();
 
   const services = [
-    { id: 0, icon: <Apple className="w-8 h-8 text-primary" /> },
-    { id: 1, icon: <Activity className="w-8 h-8 text-secondary" /> },
-    { id: 2, icon: <HeartPulse className="w-8 h-8 text-destructive" /> },
-    { id: 3, icon: <Utensils className="w-8 h-8 text-primary" /> },
+    { id: 0, icon: <Dumbbell className="w-8 h-8 text-primary" /> },
+    { id: 1, icon: <Flame className="w-8 h-8 text-secondary" /> },
+    { id: 2, icon: <UtensilsCrossed className="w-8 h-8 text-secondary" /> },
+    { id: 3, icon: <RefreshCw className="w-8 h-8 text-destructive" /> },
+    { id: 4, icon: <Trophy className="w-8 h-8 text-primary" /> },
+    { id: 5, icon: <Smartphone className="w-8 h-8 text-secondary" /> },
   ];
 
   const container = {
@@ -41,6 +43,14 @@ export default function Services() {
           >
             {t('services.title')}
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-muted-foreground max-w-2xl mx-auto mb-6 text-lg"
+          >
+            {t('services.subtitle')}
+          </motion.p>
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -54,7 +64,7 @@ export default function Services() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {services.map((service) => (
             <motion.div key={service.id} variants={item}>

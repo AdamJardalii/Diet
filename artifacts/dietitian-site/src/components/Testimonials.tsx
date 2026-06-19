@@ -7,7 +7,7 @@ import { Quote } from 'lucide-react';
 export default function Testimonials() {
   const { t } = useLanguage();
   
-  const reviews = [0, 1, 2];
+  const reviews = [0, 1, 2, 3];
 
   return (
     <section id="testimonials" className="py-24 bg-background">
@@ -29,7 +29,7 @@ export default function Testimonials() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {reviews.map((id) => (
             <motion.div
               key={id}
@@ -38,19 +38,24 @@ export default function Testimonials() {
               viewport={{ once: true }}
               transition={{ delay: id * 0.1, duration: 0.5 }}
             >
-              <Card className="h-full bg-muted/20 border-border/50">
+              <Card className="h-full bg-muted/20 border-border/50 hover:bg-muted/40 transition-colors">
                 <CardContent className="p-6 flex flex-col h-full">
                   <Quote className="w-10 h-10 text-primary/20 mb-4" />
                   <p className="text-foreground/80 italic flex-grow mb-6">
                     "{t(`testimonials.items.${id}.text`)}"
                   </p>
                   <div className="flex items-center gap-3 mt-auto">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold shrink-0">
                       {t(`testimonials.items.${id}.name`).charAt(0)}
                     </div>
-                    <span className="font-semibold text-foreground">
-                      {t(`testimonials.items.${id}.name`)}
-                    </span>
+                    <div className="flex flex-col">
+                      <span className="font-semibold text-foreground leading-tight">
+                        {t(`testimonials.items.${id}.name`)}
+                      </span>
+                      <span className="text-xs text-muted-foreground mt-0.5">
+                        {t(`testimonials.items.${id}.role`)}
+                      </span>
+                    </div>
                   </div>
                 </CardContent>
               </Card>

@@ -27,7 +27,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-              {language === 'ar' ? 'أخصائية تغذية سريرية' : 'Clinical Dietitian'}
+              {t('hero.badge')}
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight mb-6">
               {t('hero.title')}
