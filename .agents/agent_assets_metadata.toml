@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "Holb0bVC1Y7brmW1TcKzE"
+uri = "file://artifacts/dietitian-site/public/hero.png"
+type = "image"
+title = "Hero background kitchen"
+
+[[generated]]
+id = "S8ITCAvAj4tP5OLOgbc-S"
+uri = "file://artifacts/dietitian-site/public/about.png"
+type = "image"
+title = "Dietitian portrait"
+
+[[generated]]
+id = "EXoROqRsIwBzfKivyw_D8"
+uri = "file://artifacts/dietitian-site/public/transform1.png"
+type = "image"
+title = "Transformation 1"
+
+[[generated]]
+id = "j3el4pISysff4L3F3Cgse"
+uri = "file://artifacts/dietitian-site/public/transform2.png"
+type = "image"
+title = "Transformation 2"
