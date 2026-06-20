@@ -1,12 +1,13 @@
-import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import NoFoodBan from '@/components/NoFoodBan';
 import About from '@/components/About';
 import Services from '@/components/Services';
 import Transformations from '@/components/Transformations';
 import Testimonials from '@/components/Testimonials';
 import ContactFooter from '@/components/ContactFooter';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 export default function Home() {
   return (
@@ -14,12 +15,14 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <NoFoodBan />
         <About />
         <Transformations />
         <Services />
         <Testimonials />
       </main>
       <ContactFooter />
+      <FloatingWhatsApp />
     </div>
   );
 }

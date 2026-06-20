@@ -1,23 +1,29 @@
 import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
-import { Dumbbell, Flame, UtensilsCrossed, RefreshCw, Trophy, Smartphone, CheckCircle2 } from 'lucide-react';
+import { Scale, Heart, Moon, Activity, Droplets, Baby, Users, Dumbbell, Smartphone, CheckCircle2 } from 'lucide-react';
 
 const icons = [
+  <Scale className="w-7 h-7" />,
+  <Heart className="w-7 h-7" />,
+  <Moon className="w-7 h-7" />,
+  <Activity className="w-7 h-7" />,
+  <Droplets className="w-7 h-7" />,
+  <Baby className="w-7 h-7" />,
+  <Users className="w-7 h-7" />,
   <Dumbbell className="w-7 h-7" />,
-  <Flame className="w-7 h-7" />,
-  <UtensilsCrossed className="w-7 h-7" />,
-  <RefreshCw className="w-7 h-7" />,
-  <Trophy className="w-7 h-7" />,
   <Smartphone className="w-7 h-7" />,
 ];
 
 const iconColors = [
-  'bg-primary/10 text-primary',
+  'bg-blue-100 text-blue-600',
+  'bg-pink-100 text-pink-600',
+  'bg-indigo-100 text-indigo-600',
+  'bg-purple-100 text-purple-600',
+  'bg-sky-100 text-sky-600',
+  'bg-rose-100 text-rose-600',
   'bg-orange-100 text-orange-600',
   'bg-emerald-100 text-emerald-600',
-  'bg-blue-100 text-blue-600',
-  'bg-yellow-100 text-yellow-600',
-  'bg-purple-100 text-purple-600',
+  'bg-primary/10 text-primary',
 ];
 
 const container = {
@@ -33,7 +39,7 @@ const item = {
 export default function Services() {
   const { t, language } = useLanguage();
 
-  const services = Array.from({ length: 6 }, (_, i) => i);
+  const services = Array.from({ length: 9 }, (_, i) => i);
 
   return (
     <section id="services" className="py-24 bg-muted/20">
@@ -66,10 +72,9 @@ export default function Services() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {services.map((id) => {
-            const isPopular = id === 2;
-            const period = id === 2 ? t('services.perWeek') : t('services.perMonth');
-            const serviceTitle = t(`services.items.${id}.title`);
-            const waMessage = encodeURIComponent(`Hello, I want the following service: ${serviceTitle}`);
+            const isPopular = id === 8;
+            const period = id === 8 ? t('services.perSession') : t('services.perMonth');
+            const waMessage = encodeURIComponent(t(`services.items.${id}.waMsg`));
             const waUrl = `https://wa.me/96176097305?text=${waMessage}`;
 
             return (
