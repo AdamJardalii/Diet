@@ -1,0 +1,134 @@
+This is my existing dietitian website. KEEP the current layout and design — 
+APPLY THE EDITS BELOW. Do not rebuild from scratch.
+
+═══════════════════════════════
+PLACEHOLDERS (fill these in first)
+═══════════════════════════════
+[NAME] = dietitian's name
+[WHATSAPP_NUMBER] = full intl format, e.g. 9617XXXXXXX
+[INSTAGRAM] = IG handle
+[UNIVERSITY] = where she studied
+[AREA] = clinic location (e.g. Saida / Achrafieh)
+[YEARS] = years of experience
+[USD] = price per service
+
+═══════════════════════════════
+1. FUNCTIONAL CHANGES
+═══════════════════════════════
+- Add a floating WhatsApp button, fixed bottom-right, visible on EVERY screen.
+- Make ALL "Book"/"Contact"/CTA buttons open WhatsApp:
+  wa.me/[WHATSAPP_NUMBER]?text=... (use the pre-filled messages below).
+  Remove any email contact form — route everything to WhatsApp.
+- Add an English/Arabic language toggle in the header. In Arabic mode, flip 
+  the ENTIRE layout to proper RTL (text, nav, buttons, icons).
+- Fix SEO: real <title>, meta description, Open Graph tags, favicon. Remove 
+  all Replit placeholder text ("Update this description...").
+- Embed the Instagram feed on the homepage; add IG icon to header + footer 
+  (handle: [INSTAGRAM]).
+- Lazy-load and compress all images. Keep it light/fast for mobile data.
+
+═══════════════════════════════
+2. REPLACE TEXT WITH THIS COPY
+(English = English mode, Arabic = Arabic/RTL mode)
+═══════════════════════════════
+
+HERO
+EN: Lose weight without giving up the food you love.
+    Personalized nutrition plans built around real Lebanese food — from 
+    tabbouleh to teta's cooking. Healthy, practical, and made for your life.
+AR: خسّي وزنك من دون ما تتخلّي عن الأكل يلّي بتحبّي.
+    برامج تغذية مخصّصة مبنية على الأكل اللبناني الحقيقي — من التبّولة لطبخة 
+    تيتا. صحّية، عملية، ومناسبة لحياتك.
+
+"WE WON'T BAN YOUR FOOD" SECTION (place near top)
+EN: No, you won't be banned from bread, labneh, or Sunday lunch. We build 
+    your plan around Lebanese food — mezze, manakish, fruits in season — so 
+    it actually fits your life and you stick to it.
+AR: لا، ما رح نمنعك عن الخبز ولا اللبنة ولا غدا يوم الأحد. منبني برنامجك على 
+    الأكل اللبناني — مازة، مناقيش، وفواكه الموسم — ليكون عملي وتقدري تكمّلي فيه.
+
+ABOUT / TRUST LINE
+EN: [NAME] is a licensed clinical dietitian registered with the Order of 
+    Dietitians in Lebanon, a graduate of [UNIVERSITY], with [YEARS] years 
+    helping people across Lebanon and abroad reach their goals — without 
+    crash diets.
+AR: [NAME] اختصاصية تغذية مجازة ومسجّلة في نقابة اختصاصيي التغذية في لبنان، 
+    خرّيجة [UNIVERSITY]، خبرة [YEARS] سنوات بمساعدة الناس بلبنان وبالغربة 
+    ليوصلوا لأهدافهم — بلا ريجيمات قاسية.
+
+TESTIMONIAL (example style)
+EN: "I lost 12 kg and never felt deprived — I still ate tabbouleh every 
+    week!" — Rana, Beirut
+AR: «خسّيت ١٢ كيلو وما حسّيت يوم إني محرومة — ضلّيت آكل تبّولة كل أسبوع!» 
+    — رنا، بيروت
+
+═══════════════════════════════
+3. SERVICE CARDS
+(each card: title + description + "[USD]" price + WhatsApp "Book" button)
+═══════════════════════════════
+
+WEIGHT LOSS
+EN: A sustainable plan built for your body and routine. Steady results you 
+    can actually keep, with weekly follow-up.
+AR: برنامج عملي مبني على جسمك وروتينك. نتائج ثابتة بتقدري تحافظي عليها، مع 
+    متابعة أسبوعية.
+
+BRIDE / "3AROUSS" PACKAGE
+EN: Look stunning on your big day. A focused plan that gets you 
+    camera-ready, with follow-up all the way to the wedding date.
+AR: لتطلّي بأحلى صورة بيوم عمرك. برنامج مكثّف بيحضّرك ليوم الزفاف، مع متابعة 
+    لحدّ تاريخ العرس.
+
+RAMADAN PLAN
+EN: Stay healthy and energized through the month. Balanced suhoor and iftar 
+    plans that keep you light and full — no deprivation.
+AR: حافظي على صحّتك ونشاطك طوال الشهر. خطّة إفطار وسحور متوازنة بتخلّيك خفيفة 
+    وشبعانة، بلا حرمان.
+
+PCOS & HORMONAL BALANCE
+EN: Nutrition designed to manage PCOS symptoms, balance hormones, and 
+    support healthy weight and fertility.
+AR: تغذية مدروسة للتحكّم بأعراض تكيّس المبايض، توازن الهرمونات، ودعم الوزن 
+    الصحّي والخصوبة.
+
+DIABETES MANAGEMENT
+EN: Keep your blood sugar steady with a balanced plan tailored to your 
+    medication and lifestyle.
+AR: حافظي على استقرار سكر الدم مع برنامج متوازن مفصّل على دوائك ونمط حياتك.
+
+PREGNANCY & POST-PREGNANCY
+EN: Nourish yourself and your baby during pregnancy, then safely get back 
+    to feeling like you afterward.
+AR: تغذية صحّية إلك ولطفلك خلال الحمل، وبرنامج آمن بيرجّعك لشكلك وطاقتك بعد 
+    الولادة.
+
+PEDIATRIC NUTRITION
+EN: Healthy eating habits for your kids — from picky eaters to growth and 
+    weight concerns.
+AR: عادات أكل صحّية لولادك، من الأكل الانتقائي لمتابعة النمو والوزن.
+
+SPORTS NUTRITION
+EN: Fuel your training and performance with a plan built around your sport 
+    and goals.
+AR: برنامج مبني على رياضتك وأهدافك ليدعم تمرينك وأداءك.
+
+ONLINE CONSULTATION  ← highlight this card
+EN: Wherever you are — Beirut, the Gulf, or abroad — get your full plan and 
+    follow-ups over video and WhatsApp. Same care, no matter the distance.
+AR: من أي مكان بالعالم — بيروت، الخليج، أو الغربة — بتاخدي برنامجك ومتابعتك 
+    عبر الفيديو والواتساب. نفس الاهتمام، مهما بعدت المسافة.
+
+═══════════════════════════════
+4. WHATSAPP PRE-FILLED MESSAGES
+═══════════════════════════════
+General button:  مرحبا دكتورة [NAME]، بحب احجز موعد استشارة 🙂
+Bride button:    مرحبا دكتورة، بسأل عن باقة العروس
+Online button:   مرحبا، بحب اعرف عن الاستشارات الأونلاين
+
+═══════════════════════════════
+NOTES
+═══════════════════════════════
+- All copy addresses a female client (خسّي / بتحبّي). To make it neutral, 
+  switch verbs to plural (خسّوا / بتحبّوا).
+- Keep all [bracketed] fields editable.
+- Don't change the visual design — only content + the functional items above.
