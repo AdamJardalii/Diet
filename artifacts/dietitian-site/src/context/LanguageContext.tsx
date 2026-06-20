@@ -80,32 +80,55 @@ const content = {
     stat3_label: { en: 'Client Satisfaction', ar: 'رضا العملاء' },
   },
   services: {
-    title: { en: 'What I Offer', ar: 'ما أقدمه' },
+    title: { en: 'Services & Pricing', ar: 'الخدمات والأسعار' },
     subtitle: { en: 'Nutrition solutions built for performance, muscle, and real results', ar: 'حلول تغذية مبنية للأداء والعضلات والنتائج الحقيقية' },
+    perMonth: { en: '/ month', ar: '/ شهر' },
+    perWeek: { en: '/ week', ar: '/ أسبوع' },
+    cta: { en: 'Book Now', ar: 'احجز الآن' },
+    popular: { en: 'Most Popular', ar: 'الأكثر طلباً' },
     items: [
       {
-        title: { en: 'Muscle Building Plans', ar: 'خطط بناء العضلات' },
-        desc: { en: 'Science-backed calorie and macro plans to maximize lean muscle growth and strength.', ar: 'خطط سعرات حرارية وماكرو مدعومة علمياً لتعظيم نمو العضلات الخالية من الدهون والقوة.' }
+        title: { en: 'Muscle Building Plan', ar: 'خطة بناء العضلات' },
+        desc: { en: 'Science-backed calorie and macro plans to maximize lean muscle growth and strength gains.', ar: 'خطط سعرات حرارية وماكرو مدعومة علمياً لتعظيم نمو العضلات الخالية من الدهون.' },
+        price: { en: '299 SAR', ar: '299 ر.س' },
+        period: 'month',
+        includes: { en: 'Custom macros · Weekly check-in · WhatsApp support', ar: 'ماكرو مخصص · متابعة أسبوعية · دعم واتساب' }
       },
       {
         title: { en: 'Fat Loss & Shredding', ar: 'حرق الدهون والتنشيف' },
-        desc: { en: 'Strategic deficit protocols that preserve muscle while dropping body fat fast.', ar: 'بروتوكولات عجز استراتيجية تحافظ على العضلات مع خفض نسبة الدهون بسرعة.' }
+        desc: { en: 'Strategic deficit protocols that preserve every gram of muscle while dropping body fat fast.', ar: 'بروتوكولات عجز استراتيجية تحافظ على العضلات مع خفض نسبة الدهون بسرعة.' },
+        price: { en: '299 SAR', ar: '299 ر.س' },
+        period: 'month',
+        includes: { en: 'Calorie cycling · Progress tracking · Supplement guide', ar: 'تدوير السعرات · تتبع التقدم · دليل المكملات' }
       },
       {
         title: { en: 'Home Meal Plans', ar: 'خطط وجبات منزلية' },
-        desc: { en: 'Ready-to-cook weekly meal plans delivered to your phone — high protein, delicious, easy.', ar: 'خطط وجبات أسبوعية جاهزة للطبخ تُرسل إلى هاتفك — غنية بالبروتين، لذيذة، وسهلة.' }
+        desc: { en: 'Ready-to-cook weekly meal plans sent to your phone — high protein, delicious, and easy to prep.', ar: 'خطط وجبات أسبوعية جاهزة للطبخ تُرسل إلى هاتفك — غنية بالبروتين، لذيذة، وسهلة.' },
+        price: { en: '199 SAR', ar: '199 ر.س' },
+        period: 'week',
+        includes: { en: '7-day plan · Recipes + shopping list · Macro breakdown', ar: 'خطة 7 أيام · وصفات وقائمة تسوق · تفصيل الماكرو' },
+        popular: true
       },
       {
         title: { en: 'Body Recomposition', ar: 'إعادة تكوين الجسم' },
-        desc: { en: 'Simultaneously gain muscle and lose fat with precision nutrition programming.', ar: 'اكسب العضلات وأحرق الدهون في نفس الوقت مع برمجة تغذية دقيقة.' }
+        desc: { en: 'Simultaneously gain muscle and lose fat with precision nutrition and strategic periodization.', ar: 'اكسب العضلات وأحرق الدهون في نفس الوقت مع برمجة تغذية دقيقة.' },
+        price: { en: '349 SAR', ar: '349 ر.س' },
+        period: 'month',
+        includes: { en: 'Advanced macros · Bi-weekly calls · Full diet overhaul', ar: 'ماكرو متقدم · مكالمات نصف شهرية · إعادة هيكلة كاملة' }
       },
       {
         title: { en: 'Competition Prep', ar: 'التحضير للمسابقات' },
-        desc: { en: 'Peak-week and stage-ready nutrition for bodybuilding and physique competitions.', ar: 'تغذية الأسبوع الذروة والاستعداد للمسرح لمسابقات كمال الأجسام.' }
+        desc: { en: 'Peak-week and stage-ready nutrition for bodybuilding and physique competitions.', ar: 'تغذية الأسبوع الذروة والاستعداد للمسرح لمسابقات كمال الأجسام.' },
+        price: { en: '499 SAR', ar: '499 ر.س' },
+        period: 'month',
+        includes: { en: 'Peak week protocol · Daily check-in · Water & sodium management', ar: 'بروتوكول الأسبوع الذروة · متابعة يومية · إدارة الماء والصوديوم' }
       },
       {
         title: { en: 'Online Coaching', ar: 'التدريب الإلكتروني' },
-        desc: { en: 'Monthly check-ins, plan adjustments, and direct WhatsApp support — wherever you are.', ar: 'متابعة شهرية وتعديلات على الخطة ودعم مباشر عبر واتساب — أينما كنت.' }
+        desc: { en: 'Monthly check-ins, plan adjustments, and direct WhatsApp support — wherever you are in the world.', ar: 'متابعة شهرية وتعديلات على الخطة ودعم مباشر عبر واتساب — أينما كنت.' },
+        price: { en: '249 SAR', ar: '249 ر.س' },
+        period: 'month',
+        includes: { en: 'Monthly plan update · Voice note support · Progress photos review', ar: 'تحديث شهري للخطة · دعم بالرسائل الصوتية · مراجعة صور التقدم' }
       }
     ]
   },
