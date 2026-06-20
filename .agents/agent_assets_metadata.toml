@@ -42,3 +42,39 @@ id = "d8OuCoiv9wG-HHJBj9jyf"
 uri = "file://artifacts/dietitian-site/public/transform4.png"
 type = "image"
 title = "Female strength transformation"
+
+[[generated]]
+id = "48HS36LLl9EkGMiNHEE-x"
+uri = "file://artifacts/dietitian-site/public/client1.png"
+type = "image"
+title = "Khalil Mansour portrait"
+
+[[generated]]
+id = "WsHhhuoRiIH3HwMmQbwXA"
+uri = "file://artifacts/dietitian-site/public/client2.png"
+type = "image"
+title = "Rania Haddad portrait"
+
+[[generated]]
+id = "82VETPncBFtouo68FnBI9"
+uri = "file://artifacts/dietitian-site/public/client3.png"
+type = "image"
+title = "Omar Khoury portrait"
+
+[[generated]]
+id = "bVTJ-i_kHg9DsHR4MAaaS"
+uri = "file://artifacts/dietitian-site/public/client4.png"
+type = "image"
+title = "Fatima Azar portrait"
+
+[[generated]]
+id = "Q5I5XueCQgZPKHxjK13cL"
+uri = "file://artifacts/dietitian-site/public/client5.png"
+type = "image"
+title = "Jad Bou Nassar portrait"
+
+[[generated]]
+id = "MrgthMkWJVUGZiV4PcYjb"
+uri = "file://artifacts/dietitian-site/public/client6.png"
+type = "image"
+title = "Nadine Saad portrait"
