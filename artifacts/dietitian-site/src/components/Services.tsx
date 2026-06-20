@@ -68,6 +68,9 @@ export default function Services() {
           {services.map((id) => {
             const isPopular = id === 2;
             const period = id === 2 ? t('services.perWeek') : t('services.perMonth');
+            const serviceTitle = t(`services.items.${id}.title`);
+            const waMessage = encodeURIComponent(`Hello, I want the following service: ${serviceTitle}`);
+            const waUrl = `https://wa.me/96176097305?text=${waMessage}`;
 
             return (
               <motion.div
@@ -117,7 +120,9 @@ export default function Services() {
                     </div>
 
                     <a
-                      href="#contact"
+                      href={waUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       data-testid={`button-book-service-${id}`}
                       className={`block w-full text-center py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
                         isPopular
