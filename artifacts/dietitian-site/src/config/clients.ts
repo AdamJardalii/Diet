@@ -21,6 +21,26 @@
  */
 import { DEFAULT_CLIENT } from './defaultClient';
 
+/** A piece of text available in both languages. */
+export interface Localized {
+  en: string;
+  ar: string;
+}
+
+/**
+ * Optional per-client text overrides for the About section. Anything omitted
+ * falls back to the shared site content. Use this to make a real client's page
+ * accurate (their own bio, credentials, and numbers).
+ */
+export interface ClientProfile {
+  /** About paragraph. */
+  bio?: Localized;
+  /** The small pill badges under the name (any number). */
+  badges?: Localized[];
+  /** The stat cards (number + label). Provide as many as you like. */
+  stats?: Array<{ num: Localized; label: Localized }>;
+}
+
 export interface ClientConfig {
   /** Display name, shown in navbar, about section, and footer. */
   name: { en: string; ar: string };
@@ -32,12 +52,15 @@ export interface ClientConfig {
   logo?: string;
   /** WhatsApp number in international format, digits only (no +, no spaces). */
   whatsapp: string;
-  /** Social links — leave as empty string "" to hide that icon. */
+  /** Social links — leave as empty string "" (or omit) to hide that icon. */
   instagram: string;
   tiktok: string;
+  facebook?: string;
   /** Image paths (path under /public, or a full URL). */
   aboutImage: string;
   heroImage: string;
+  /** Optional per-client About text (bio, badges, stats). */
+  profile?: ClientProfile;
 }
 
 /** Used when ?id= is missing or doesn't match any client in clients.json. */

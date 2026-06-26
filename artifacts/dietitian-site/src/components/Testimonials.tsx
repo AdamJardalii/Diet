@@ -36,7 +36,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="w-24 h-1 bg-primary mx-auto rounded-full"
+            className="w-24 h-1 bg-gradient-to-r from-primary to-gold mx-auto rounded-full"
           />
         </div>
 

@@ -21,15 +21,19 @@ const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
 
 // Max width per image, chosen to match the largest size it's ever displayed at
 // (with a 2x allowance for retina). Smaller targets = smaller files.
+// Per-image-type tuning. `quality` is optional (defaults to DEFAULT_QUALITY).
+// Portraits people look at closely (the doctor, the hero) get higher quality
+// and resolution so they stay crisp; tiny avatars can be aggressively shrunk.
 const RULES = [
-  { match: /(^|\/)client\d+\./i, maxWidth: 96, label: 'avatar' }, // shown at 48px
+  { match: /(^|\/)client\d+\./i, maxWidth: 128, label: 'avatar' }, // shown at 48px
   { match: /(^|\/)logo\./i, maxWidth: 320, label: 'navbar logo' }, // shown ~40px tall
-  { match: /(^|\/)hero\./i, maxWidth: 1600, label: 'hero (full-width bg)' },
-  { match: /(^|\/)about\./i, maxWidth: 800, label: 'about portrait' },
-  { match: /(^|\/)transform\d+\./i, maxWidth: 800, label: 'transformation' },
+  { match: /(^|\/)hero\./i, maxWidth: 1600, quality: 82, label: 'hero (full-width bg)' },
+  { match: /(^|\/)about\./i, maxWidth: 1100, quality: 90, label: 'about portrait' },
+  { match: /(^|\/)transform\d+\./i, maxWidth: 900, quality: 84, label: 'transformation' },
   { match: /(^|\/)opengraph\./i, maxWidth: 1200, label: 'social preview' },
 ];
 const DEFAULT_MAX_WIDTH = 1200;
+const DEFAULT_QUALITY = 80;
 
 function ruleFor(relPath) {
   return RULES.find((r) => r.match.test(relPath.replace(/\\/g, '/')));

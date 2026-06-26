@@ -90,7 +90,7 @@ export default function Services() {
               >
                 {isPopular && (
                   <div className="absolute top-0 inset-x-0 flex justify-center">
-                    <span className="inline-block bg-secondary text-secondary-foreground text-xs font-bold px-4 py-1 rounded-b-xl">
+                    <span className="inline-block bg-gold text-gold-foreground text-xs font-bold px-4 py-1 rounded-b-xl shadow-sm">
                       {t('services.popular')}
                     </span>
                   </div>

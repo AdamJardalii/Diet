@@ -1,5 +1,5 @@
 import { useLanguage } from '@/context/LanguageContext';
-import { SiWhatsapp, SiInstagram, SiTiktok } from 'react-icons/si';
+import { SiWhatsapp, SiInstagram, SiTiktok, SiFacebook } from 'react-icons/si';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import {
@@ -66,7 +66,7 @@ export default function ContactFooter() {
                 <span dir="ltr">{waDisplay}</span>
               </a>
 
-              {(client.instagram || client.tiktok) && (
+              {(client.instagram || client.tiktok || client.facebook) && (
                 <div className="flex items-center gap-4 mt-2">
                   {client.instagram && (
                     <a
@@ -74,9 +74,20 @@ export default function ContactFooter() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Instagram"
-                      className="w-11 h-11 rounded-full bg-background/10 hover:bg-primary text-background flex items-center justify-center transition-colors"
+                      className="w-11 h-11 rounded-full bg-background/10 hover:bg-gold text-background flex items-center justify-center transition-colors"
                     >
                       <SiInstagram className="w-5 h-5" />
+                    </a>
+                  )}
+                  {client.facebook && (
+                    <a
+                      href={client.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                      className="w-11 h-11 rounded-full bg-background/10 hover:bg-gold text-background flex items-center justify-center transition-colors"
+                    >
+                      <SiFacebook className="w-5 h-5" />
                     </a>
                   )}
                   {client.tiktok && (
@@ -85,7 +96,7 @@ export default function ContactFooter() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="TikTok"
-                      className="w-11 h-11 rounded-full bg-background/10 hover:bg-primary text-background flex items-center justify-center transition-colors"
+                      className="w-11 h-11 rounded-full bg-background/10 hover:bg-gold text-background flex items-center justify-center transition-colors"
                     >
                       <SiTiktok className="w-5 h-5" />
                     </a>

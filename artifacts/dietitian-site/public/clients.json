@@ -16,5 +16,31 @@
     "tiktok": "https://tiktok.com/@sara.nutrition",
     "aboutImage": "/about.webp",
     "heroImage": "/hero.webp"
+  },
+
+  "ghada-kh9f3a2c": {
+    "name": { "en": "Ghada Khalifeh", "ar": "غادة خليفة" },
+    "whatsapp": "9613137831",
+    "instagram": "https://www.instagram.com/dietitianghada_khalifeh",
+    "facebook": "https://www.facebook.com/profile.php?id=61573277531313",
+    "tiktok": "",
+    "aboutImage": "/clients/ghada-kh9f3a2c/about.webp",
+    "heroImage": "/hero.webp",
+    "profile": {
+      "bio": {
+        "en": "Integrative nutrition practitioner and health coach, AUB graduate with over 25 years of experience. Specializing in metabolic health, insulin resistance, and sustainable, emotional-eating-aware plans — with specialized online consultations.",
+        "ar": "ممارِسة تغذية تكاملية ومدرّبة صحية، خريجة الجامعة الأميركية في بيروت مع أكثر من 25 سنة خبرة. مختصة بالصحة الأيضية، مقاومة الإنسولين، وبرامج مستدامة تراعي الأكل العاطفي — مع استشارات أونلاين متخصصة."
+      },
+      "badges": [
+        { "en": "AUB Graduate", "ar": "خريجة الجامعة الأميركية" },
+        { "en": "25 Years Experience", "ar": "25 سنة خبرة" },
+        { "en": "Online Consultations", "ar": "استشارات أونلاين" }
+      ],
+      "stats": [
+        { "num": { "en": "25", "ar": "25" }, "label": { "en": "Years Experience", "ar": "سنة خبرة" } },
+        { "num": { "en": "AUB", "ar": "AUB" }, "label": { "en": "Graduate", "ar": "خريجة" } },
+        { "num": { "en": "5", "ar": "5" }, "label": { "en": "Clinic Areas", "ar": "مناطق العيادات" } }
+      ]
+    }
   }
 }

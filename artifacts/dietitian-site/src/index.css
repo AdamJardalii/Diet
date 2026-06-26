@@ -23,6 +23,9 @@
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-primary-border: var(--primary-border);
 
+  --color-gold: hsl(var(--gold));
+  --color-gold-foreground: hsl(var(--gold-foreground));
+
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
   --color-secondary-border: var(--secondary-border);
@@ -67,10 +70,12 @@
   --popover: 40 33% 100%;
   --popover-foreground: 160 20% 20%;
   --popover-border: 135 15% 85%;
-  --primary: 135 20% 45%;
+  --primary: 135 22% 38%;
   --primary-foreground: 40 33% 98%;
   --secondary: 20 50% 60%;
   --secondary-foreground: 40 33% 98%;
+  --gold: 38 58% 50%;
+  --gold-foreground: 40 33% 98%;
   --muted: 135 20% 90%;
   --muted-foreground: 160 10% 40%;
   --accent: 135 20% 92%;
