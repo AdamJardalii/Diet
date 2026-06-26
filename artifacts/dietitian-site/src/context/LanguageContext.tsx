@@ -127,6 +127,32 @@ const content = {
     },
     cta: { en: "Book a Consultation", ar: "احجزوا استشارة" },
   },
+  balanced: {
+    badge: { en: "Balanced, Not Restrictive", ar: "متوازن، مش حرمان" },
+    title: {
+      en: "Keep your Lebanese food. We'll keep it balanced.",
+      ar: "كلوا أكلكم اللبناني، ونحنا منوازنه إلكم.",
+    },
+    body: {
+      en: "No banned bread, no skipping Sunday lunch. Your plan is built around real Lebanese food — mezze, manakish, labneh, fruits in season — portioned and balanced so it fits your life and you actually stick to it.",
+      ar: "بلا حرمان من الخبز، وبلا تفويت غدا يوم الأحد. برنامجكم مبني على الأكل اللبناني الحقيقي — مازة، مناقيش، لبنة، وفواكه الموسم — مقسّم ومتوازن ليناسب حياتكم وتقدروا تكمّلوا فيه.",
+    },
+    point1_title: { en: "Eat what you love", ar: "كُلوا يلّي بتحبّوه" },
+    point1_desc: {
+      en: "Bread, labneh, mezze and Sunday lunch all stay on the table.",
+      ar: "الخبز، اللبنة، المازة وغدا الأحد كلّن بيضلّوا عالطاولة.",
+    },
+    point2_title: { en: "Real Lebanese food", ar: "أكل لبناني حقيقي" },
+    point2_desc: {
+      en: "Plans built around seasonal, local dishes — never bland imported diets.",
+      ar: "برامج مبنية على أطباق محلية وموسمية — مش ريجيمات مستوردة بلا طعمة.",
+    },
+    point3_title: { en: "Balanced portions", ar: "حصص متوازنة" },
+    point3_desc: {
+      en: "The right balance of protein, carbs and healthy fats — measured, not guessed.",
+      ar: "التوازن الصح بين البروتين والنشويات والدهون الصحّية — مدروس، مش تخمين.",
+    },
+  },
   about: {
     title: { en: "About the Doctor", ar: "عن الدكتور" },
     badge1: {
@@ -387,7 +413,7 @@ const content = {
         },
       },
       {
-        name: { en: "Sami Haddad", ar: "سامي حداد" },
+        name: { en: "Lara Haddad", ar: "لارا حداد" },
         role: { en: "Post-Pregnancy", ar: "ما بعد الولادة" },
         city: { en: "Jounieh", ar: "جونيه" },
         img: "/client3.webp",
