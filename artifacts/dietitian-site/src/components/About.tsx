@@ -1,12 +1,14 @@
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
+import CountUp from '@/components/CountUp';
+import { asset } from '@/lib/asset';
 
 export default function About() {
-  const { t } = useLanguage();
+  const { t, client, language } = useLanguage();
 
   return (
-    <section id="about" className="py-24 bg-muted/30">
+    <section id="about" className="py-16 bg-muted/30">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -17,9 +19,11 @@ export default function About() {
             className="relative"
           >
             <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl relative z-10 max-w-md mx-auto md:mr-auto md:ml-0 rtl:md:ml-auto rtl:md:mr-0">
-              <img 
-                src="/about.png" 
-                alt="Nour Al-Hassan - Dietitian" 
+              <img
+                src={asset(client.aboutImage)}
+                alt={`${client.name[language]} - Dietitian`}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -44,16 +48,16 @@ export default function About() {
               {t('about.bio')}
             </p>
             <div className="grid grid-cols-3 gap-4">
-              <div className="bg-background rounded-xl p-4 shadow-sm text-center">
-                <div className="text-2xl font-bold text-primary mb-1">{t('about.stat1_num')}</div>
+              <div className="bg-background rounded-xl p-4 shadow-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-default">
+                <CountUp value={t('about.stat1_num')} className="block text-2xl font-bold text-primary mb-1" />
                 <div className="text-xs text-muted-foreground">{t('about.stat1_label')}</div>
               </div>
-              <div className="bg-background rounded-xl p-4 shadow-sm text-center">
-                <div className="text-2xl font-bold text-primary mb-1">{t('about.stat2_num')}</div>
+              <div className="bg-background rounded-xl p-4 shadow-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-default">
+                <CountUp value={t('about.stat2_num')} className="block text-2xl font-bold text-primary mb-1" />
                 <div className="text-xs text-muted-foreground">{t('about.stat2_label')}</div>
               </div>
-              <div className="bg-background rounded-xl p-4 shadow-sm text-center">
-                <div className="text-2xl font-bold text-primary mb-1">{t('about.stat3_num')}</div>
+              <div className="bg-background rounded-xl p-4 shadow-sm text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-default">
+                <CountUp value={t('about.stat3_num')} className="block text-2xl font-bold text-primary mb-1" />
                 <div className="text-xs text-muted-foreground">{t('about.stat3_label')}</div>
               </div>
             </div>

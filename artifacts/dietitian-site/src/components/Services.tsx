@@ -37,19 +37,19 @@ const item = {
 };
 
 export default function Services() {
-  const { t, language } = useLanguage();
+  const { t, language, client } = useLanguage();
 
   const services = Array.from({ length: 9 }, (_, i) => i);
 
   return (
-    <section id="services" className="py-24 bg-muted/20">
+    <section id="services" className="py-16 bg-muted/20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-foreground mb-4"
+            className="text-3xl md:text-4xl font-bold text-foreground mb-3"
           >
             {t('services.title')}
           </motion.h2>
@@ -75,14 +75,14 @@ export default function Services() {
             const isPopular = id === 8;
             const period = id === 8 ? t('services.perSession') : t('services.perMonth');
             const waMessage = encodeURIComponent(t(`services.items.${id}.waMsg`));
-            const waUrl = `https://wa.me/96176097305?text=${waMessage}`;
+            const waUrl = `https://wa.me/${client.whatsapp}?text=${waMessage}`;
 
             return (
               <motion.div
                 key={id}
                 variants={item}
                 data-testid={`card-service-${id}`}
-                className={`relative flex flex-col rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                className={`group relative flex flex-col rounded-2xl border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                   isPopular
                     ? 'border-primary shadow-lg shadow-primary/10 bg-primary text-primary-foreground'
                     : 'border-border/60 bg-background shadow-sm'
@@ -97,7 +97,7 @@ export default function Services() {
                 )}
 
                 <div className="p-6 pt-8 flex-1 flex flex-col">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${isPopular ? 'bg-white/20 text-white' : iconColors[id]}`}>
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 ${isPopular ? 'bg-white/20 text-white' : iconColors[id]}`}>
                     {icons[id]}
                   </div>
 

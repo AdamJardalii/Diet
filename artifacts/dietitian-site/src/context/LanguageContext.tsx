@@ -1,4 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import {
+  DEFAULT_CLIENT,
+  loadClients,
+  pickClient,
+  requestedClientId,
+  type ClientConfig,
+} from '@/config/clients';
+import { asset } from '@/lib/asset';
 
 type Language = 'en' | 'ar';
 
@@ -6,6 +14,8 @@ interface LanguageContextType {
   language: Language;
   toggleLanguage: () => void;
   t: (key: string) => string;
+  /** The active client (resolved from the ?id= URL param + clients.json). */
+  client: ClientConfig;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -13,16 +23,51 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>('en');
 
+  // Client data is loaded at runtime from public/clients.json. Start from the
+  // bundled default so the site renders instantly; if a specific ?id= was
+  // requested, wait for the fetch so we don't flash the wrong doctor.
+  const requestedId = requestedClientId();
+  const [client, setClient] = useState<ClientConfig>(DEFAULT_CLIENT);
+  const [ready, setReady] = useState(requestedId === null);
+
+  useEffect(() => {
+    let active = true;
+    loadClients().then((all) => {
+      if (!active) return;
+      setClient(pickClient(all, requestedId));
+      setReady(true);
+    });
+    return () => {
+      active = false;
+    };
+  }, [requestedId]);
+
   useEffect(() => {
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
   }, [language]);
+
+  // Use the client's logo as the browser-tab favicon when one is provided.
+  useEffect(() => {
+    if (!client.logo) return;
+    const link =
+      document.querySelector<HTMLLinkElement>('link[rel="icon"]') ??
+      document.head.appendChild(
+        Object.assign(document.createElement('link'), { rel: 'icon' }),
+      );
+    link.removeAttribute('type'); // let the browser infer it from the logo file
+    link.href = asset(client.logo);
+  }, [client.logo]);
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === 'en' ? 'ar' : 'en'));
   };
 
   const t = (key: string): string => {
+    // The client's name is per-client (resolved from ?id=), not static content.
+    if (key === 'about.name') {
+      return client.name[language] || key;
+    }
     const keys = key.split('.');
     let result: any = content;
     for (const k of keys) {
@@ -36,8 +81,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
-      {children}
+    <LanguageContext.Provider value={{ language, toggleLanguage, t, client }}>
+      {ready ? (
+        children
+      ) : (
+        <div className="min-h-screen flex items-center justify-center bg-background">
+          <div className="w-10 h-10 rounded-full border-2 border-primary/30 border-t-primary animate-spin" />
+        </div>
+      )}
     </LanguageContext.Provider>
   );
 }
@@ -65,13 +116,8 @@ const content = {
     subtitle: { en: 'Personalized nutrition plans built around real Lebanese food — from tabbouleh to teta\'s cooking. Healthy, practical, and made for your life.', ar: 'برامج تغذية مخصّصة مبنية على الأكل اللبناني الحقيقي — من التبّولة لطبخة تيتا. صحّية، عملية، ومناسبة لحياتكم.' },
     cta: { en: 'Book a Consultation', ar: 'احجزوا استشارة' },
   },
-  nofood: {
-    title: { en: 'We won\'t ban your food.', ar: 'ما رح نحرمكم من أكلكم.' },
-    body: { en: 'No, you won\'t be banned from bread, labneh, or Sunday lunch. We build your plan around Lebanese food — mezze, manakish, fruits in season — so it actually fits your life and you stick to it.', ar: 'لا، ما رح نمنعكم عن الخبز ولا اللبنة ولا غدا يوم الأحد. منبني برنامجكم على الأكل اللبناني — مازة، مناقيش، وفواكه الموسم — ليكون عملي وتقدروا تكمّلوا فيه.' },
-  },
   about: {
     title: { en: 'About the Doctor', ar: 'عن الدكتور' },
-    name: { en: 'Your Doctor', ar: 'دكتورك' },
     badge1: { en: 'Licensed Dietitian — Lebanon', ar: 'اختصاصي تغذية مجاز — لبنان' },
     badge2: { en: '15 Years Experience', ar: '15 سنة خبرة' },
     badge3: { en: 'Online & In-Person', ar: 'أونلاين وشخصياً' },
@@ -171,61 +217,57 @@ const content = {
     title: { en: 'Real Results', ar: 'نتائج حقيقية' },
     subtitle: { en: 'No crash diets. No banned foods. Just real people eating real Lebanese food and getting results.', ar: 'بلا ريجيمات قاسية. بلا أكل محرّم. ناس حقيقيون يأكلون أكلاً لبنانياً حقيقياً ويحصلون على نتائج.' },
     items: [
-      { label: { en: '-12 kg in 3 months', ar: '-12 كجم في 3 أشهر' }, quote: { en: "I lost 12 kg and never felt deprived — I still ate tabbouleh every week!", ar: "خسّيت 12 كيلو وما حسّيت يوم إني محروم — ضلّيت آكل تبّولة كل أسبوع!" } },
-      { label: { en: '-18 kg — Diabetes under control', ar: '-18 كجم — السكري تحت السيطرة' }, quote: { en: "My blood sugar is now stable and I eat normal Lebanese food. No more bland hospital diets.", ar: "سكر الدم صار مستقر وأنا عم بآكل أكل لبناني عادي. خلص من الريجيمات المشفى." } },
-      { label: { en: 'Post-pregnancy results', ar: 'نتائج ما بعد الولادة' }, quote: { en: "Back to my pre-pregnancy weight in 4 months, while breastfeeding. Couldn't believe it.", ar: "رجعت لوزني قبل الحمل بـ 4 أشهر، وأنا عم برضّع. ما كنت مصدّقة." } },
-      { label: { en: 'PCOS — Hormones balanced', ar: 'تكيّس المبايض — الهرمونات متوازنة' }, quote: { en: "My cycle is regular for the first time in years. The plan changed my hormones without medication.", ar: "صار عندي دورة منتظمة لأول مرة منذ سنوات. البرنامج وازن هرموناتي بدون دواء." } }
+      { label: { en: '-12 kg in 3 months', ar: '-12 كجم في 3 أشهر' }, quote: { en: "Steady loss over three months, no crash dieting and no foods off-limits.", ar: "خسارة تدريجية على مدى ثلاثة أشهر، بلا ريجيم قاسي وبلا حرمان." } },
+      { label: { en: '-18 kg, diabetes under control', ar: '-18 كجم، السكري تحت السيطرة' }, quote: { en: "Blood sugar back in range with fewer meds, cleared by his doctor.", ar: "سكر الدم رجع لمعدّله مع تخفيف الدواء، بموافقة طبيبه." } },
+      { label: { en: 'Post-pregnancy results', ar: 'نتائج ما بعد الولادة' }, quote: { en: "Back to her energy and pre-pregnancy shape while breastfeeding.", ar: "رجعت لطاقتها ووزنها قبل الحمل وهي عم ترضّع." } },
+      { label: { en: 'PCOS, hormones balanced', ar: 'تكيّس المبايض، الهرمونات متوازنة' }, quote: { en: "A regular cycle returned after months of targeted, food-first care.", ar: "رجعت الدورة منتظمة بعد أشهر من برنامج غذائي مدروس." } }
     ]
   },
   testimonials: {
     title: { en: 'What Clients Say', ar: 'ماذا يقول العملاء' },
     items: [
       {
-        name: { en: 'Rana Khalil', ar: 'رنا خليل' },
+        name: { en: '', ar: 'رنا خليل' },
         role: { en: 'Weight Loss Client', ar: 'برنامج خسارة وزن' },
         city: { en: 'Beirut', ar: 'بيروت' },
-        img: '/client1.png',
+        img: '/client1.webp',
         text: { en: "I lost 12 kg and never felt deprived — I still ate tabbouleh every week! This is the first plan that actually fit my Lebanese lifestyle.", ar: "خسّيت 12 كيلو وما حسّيت يوم إني محرومة — ضلّيت آكل تبّولة كل أسبوع! أول برنامج ناسب حياتي اللبنانية فعلاً." }
       },
       {
         name: { en: 'Khalil Mansour', ar: 'خليل منصور' },
         role: { en: 'Diabetes Management', ar: 'إدارة السكري' },
         city: { en: 'Tripoli', ar: 'طرابلس' },
-        img: '/client2.png',
+        img: '/client2.webp',
         text: { en: "My blood sugar is now stable and I eat normal food. The doctor built a plan around Lebanese meals — not a bland hospital diet.", ar: "سكر الدم صار مستقر وأنا عم بآكل أكل عادي. الدكتور بنى البرنامج حول الأكل اللبناني — مش ريجيم مشفى." }
       },
       {
         name: { en: 'Sara Haddad', ar: 'سارة حداد' },
         role: { en: 'Post-Pregnancy', ar: 'ما بعد الولادة' },
         city: { en: 'Jounieh', ar: 'جونيه' },
-        img: '/client3.png',
+        img: '/client3.webp',
         text: { en: "Back to my pre-pregnancy weight in 4 months while breastfeeding. Couldn't believe it was possible without starving myself.", ar: "رجعت لوزني قبل الحمل بـ 4 أشهر وأنا عم برضّع. ما كنت مصدّقة إنو ممكن بدون جوع." }
       },
       {
         name: { en: 'Fatima Azar', ar: 'فاطمة عازار' },
         role: { en: 'PCOS Plan', ar: 'برنامج تكيّس المبايض' },
         city: { en: 'Sidon', ar: 'صيدا' },
-        img: '/client4.png',
+        img: '/client4.webp',
         text: { en: "My cycle is regular for the first time in years. The nutrition plan balanced my hormones without medication. Game changer.", ar: "صار عندي دورة منتظمة لأول مرة منذ سنوات. البرنامج الغذائي وازن هرموناتي بدون دواء. غيّر حياتي." }
       },
       {
         name: { en: 'Jad Bou Nassar', ar: 'جاد بو نصار' },
         role: { en: 'Sports Nutrition', ar: 'التغذية الرياضية' },
         city: { en: 'Zahle', ar: 'زحلة' },
-        img: '/client5.png',
+        img: '/client5.webp',
         text: { en: "My performance at the gym improved dramatically. The plan is built around Lebanese food I can actually prep at home — no fancy supplements.", ar: "أداؤي بالجيم تحسّن كثيراً. البرنامج مبني على أكل لبناني بقدر أجهّزه بالبيت — بدون مكملات غريبة." }
       },
       {
         name: { en: 'Nadine Saad', ar: 'نادين سعد' },
         role: { en: 'Online Client — Abroad', ar: 'عميلة أونلاين — الغربة' },
         city: { en: 'Byblos → UAE', ar: 'جبيل → الإمارات' },
-        img: '/client6.png',
+        img: '/client6.webp',
         text: { en: "I'm in Dubai and have been following up online for 6 months. Same quality as in-person, and the WhatsApp support is incredible.", ar: "أنا بدبي وعم بتابع أونلاين منذ 6 أشهر. نفس جودة الحضوري، ودعم الواتساب رائع." }
       }
     ]
-  },
-  footer: {
-    tagline: { en: 'Lose weight without giving up the food you love.', ar: 'خسّوا وزنكم من دون ما تتخلّوا عن الأكل يلّي بتحبّوه.' },
-    rights: { en: 'All rights reserved.', ar: 'جميع الحقوق محفوظة.' }
   }
 };

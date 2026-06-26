@@ -1,21 +1,22 @@
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
+import { asset } from '@/lib/asset';
 
 export default function Transformations() {
   const { t } = useLanguage();
 
   const items = [
-    { img: '/transform1.png', id: 0 },
-    { img: '/transform2.png', id: 1 },
-    { img: '/transform3.png', id: 2 },
-    { img: '/transform4.png', id: 3 },
+    { img: '/transform1.webp', id: 0 },
+    { img: '/transform2.webp', id: 1 },
+    { img: '/transform3.webp', id: 2 },
+    { img: '/transform4.webp', id: 3 },
   ];
 
   return (
-    <section id="transformations" className="py-24 bg-muted/50">
+    <section id="transformations" className="py-16 bg-muted/50">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,9 +52,11 @@ export default function Transformations() {
               className="bg-background rounded-2xl overflow-hidden shadow-md group relative"
             >
               <div className="aspect-square relative overflow-hidden">
-                <img 
-                  src={item.img} 
-                  alt="Transformation" 
+                <img
+                  src={asset(item.img)}
+                  alt="Transformation"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/60"></div>

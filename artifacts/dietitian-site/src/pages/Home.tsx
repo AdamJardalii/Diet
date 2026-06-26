@@ -1,7 +1,6 @@
 import { useLanguage } from '@/context/LanguageContext';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import NoFoodBan from '@/components/NoFoodBan';
 import About from '@/components/About';
 import Services from '@/components/Services';
 import Transformations from '@/components/Transformations';
@@ -15,7 +14,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <NoFoodBan />
         <About />
         <Transformations />
         <Services />

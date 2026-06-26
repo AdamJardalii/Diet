@@ -1,17 +1,20 @@
 import { useLanguage } from '@/context/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { asset } from '@/lib/asset';
 
 export default function Hero() {
-  const { t, language } = useLanguage();
+  const { t, client } = useLanguage();
 
   return (
-    <section id="home" className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden min-h-[90vh] flex items-center">
+    <section id="home" className="relative pt-24 pb-14 md:pt-28 md:pb-16 overflow-hidden min-h-[62vh] md:min-h-[68vh] flex items-center">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="/hero.png" 
-          alt="Healthy Mediterranean Kitchen" 
+        <img
+          src={asset(client.heroImage)}
+          alt="Healthy Mediterranean Kitchen"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-background/80 md:bg-background/60 backdrop-blur-[2px]"></div>
@@ -25,13 +28,13 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+            <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-3">
               {t('hero.badge')}
             </span>
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-[1.1] mb-4">
               {t('hero.title')}
             </h1>
-            <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-lg leading-relaxed">
+            <p className="text-base md:text-lg text-foreground/80 mb-6 max-w-lg leading-relaxed">
               {t('hero.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4">

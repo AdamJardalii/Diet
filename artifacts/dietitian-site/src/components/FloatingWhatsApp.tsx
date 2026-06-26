@@ -1,10 +1,12 @@
 import { SiWhatsapp } from 'react-icons/si';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function FloatingWhatsApp() {
+  const { client } = useLanguage();
   const msg = encodeURIComponent('مرحبا دكتور، بحب احجز موعد استشارة 🙂');
   return (
     <a
-      href={`https://wa.me/96176097305?text=${msg}`}
+      href={`https://wa.me/${client.whatsapp}?text=${msg}`}
       target="_blank"
       rel="noopener noreferrer"
       data-testid="button-floating-whatsapp"

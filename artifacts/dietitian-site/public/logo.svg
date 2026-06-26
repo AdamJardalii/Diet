@@ -1,0 +1,9 @@
+<svg width="300" height="64" viewBox="0 0 300 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nour Al-Hassan">
+  <!-- Leaf mark -->
+  <g transform="translate(8 8)">
+    <path d="M24 0C10 6 2 18 2 32c0 8 4 14 10 16C8 36 16 18 36 10 32 4 28 1 24 0Z" fill="#5b8a63"/>
+    <path d="M14 44C18 30 28 18 40 12" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="68" y="40" font-family="Cairo, system-ui, -apple-system, Segoe UI, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.5" fill="#5b8a63">Nour Al-Hassan</text>
+</svg>

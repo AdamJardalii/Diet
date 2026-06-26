@@ -1,0 +1,20 @@
+{
+  "default": {
+    "name": { "en": "Nour Al-Hassan", "ar": "نور الحسن" },
+    "logo": "/logo.svg",
+    "whatsapp": "96176097305",
+    "instagram": "https://instagram.com/",
+    "tiktok": "https://tiktok.com/",
+    "aboutImage": "/about.webp",
+    "heroImage": "/hero.webp"
+  },
+
+  "sara-9k2m4p": {
+    "name": { "en": "Sara Khoury", "ar": "سارة خوري" },
+    "whatsapp": "9613111222",
+    "instagram": "https://instagram.com/sara.nutrition",
+    "tiktok": "https://tiktok.com/@sara.nutrition",
+    "aboutImage": "/about.webp",
+    "heroImage": "/hero.webp"
+  }
+}

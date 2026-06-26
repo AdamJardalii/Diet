@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { asset } from '@/lib/asset';
 
 export default function Navbar() {
-  const { language, toggleLanguage, t } = useLanguage();
+  const { language, toggleLanguage, t, client } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -28,8 +29,19 @@ export default function Navbar() {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <a href="#home" className="text-xl font-bold tracking-tight text-primary">
-            {language === 'ar' ? 'نور الحسن' : 'Nour Al-Hassan'}
+          <a href="#home" className="flex items-center" aria-label={client.name[language]}>
+            {client.logo ? (
+              <img
+                src={asset(client.logo)}
+                alt={client.name[language]}
+                decoding="async"
+                className="h-9 md:h-10 w-auto object-contain"
+              />
+            ) : (
+              <span className="text-xl font-bold tracking-tight text-primary">
+                {client.name[language]}
+              </span>
+            )}
           </a>
         </div>
 
@@ -37,7 +49,10 @@ export default function Navbar() {
           <ul className="flex items-center gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="text-sm font-medium hover:text-primary transition-colors">
+                <a
+                  href={link.href}
+                  className="relative text-sm font-medium hover:text-primary transition-colors after:absolute after:-bottom-1 after:left-1/2 after:h-0.5 after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                >
                   {link.label}
                 </a>
               </li>

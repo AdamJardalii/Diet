@@ -1,14 +1,15 @@
 import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
 import { Quote, MapPin } from 'lucide-react';
+import { asset } from '@/lib/asset';
 
 const clientImgs = [
-  '/client1.png',
-  '/client2.png',
-  '/client3.png',
-  '/client4.png',
-  '/client5.png',
-  '/client6.png',
+  '/client1.webp',
+  '/client2.webp',
+  '/client3.webp',
+  '/client4.webp',
+  '/client5.webp',
+  '/client6.webp',
 ];
 
 const starColors = [
@@ -20,14 +21,14 @@ export default function Testimonials() {
   const reviews = [0, 1, 2, 3, 4, 5];
 
   return (
-    <section id="testimonials" className="py-24 bg-muted/20">
+    <section id="testimonials" className="py-16 bg-muted/20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-foreground mb-4"
+            className="text-3xl md:text-4xl font-bold text-foreground mb-4"
           >
             {t('testimonials.title')}
           </motion.h2>
@@ -48,7 +49,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: id * 0.08, duration: 0.5 }}
-              className="flex flex-col bg-background border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="flex flex-col bg-background border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               <div className="p-6 flex flex-col flex-1">
                 <Quote className="w-8 h-8 text-primary/25 mb-3" />
@@ -67,9 +68,13 @@ export default function Testimonials() {
 
                 <div className="flex items-center gap-3 mt-auto border-t border-border/40 pt-4">
                   <img
-                    src={clientImgs[id]}
+                    src={asset(clientImgs[id])}
                     alt={t(`testimonials.items.${id}.name`)}
                     data-testid={`img-client-${id}`}
+                    loading="lazy"
+                    decoding="async"
+                    width={48}
+                    height={48}
                     className="w-12 h-12 rounded-full object-cover border-2 border-primary/20 shrink-0"
                   />
                   <div className="min-w-0">
