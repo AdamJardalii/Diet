@@ -42,5 +42,55 @@
         { "num": { "en": "5", "ar": "5" }, "label": { "en": "Clinic Areas", "ar": "مناطق العيادات" } }
       ]
     }
+  },
+
+  "mhmd-j8k3x2": {
+    "name": { "en": "Mouhammad Jouni", "ar": "محمد جوني" },
+    "whatsapp": "96170989671",
+    "instagram": "",
+    "tiktok": "https://www.tiktok.com/@coach.mouhammad",
+    "aboutImage": "/clients/mhmd-j8k3x2/about.webp",
+    "heroImage": "/hero.webp",
+    "profile": {
+      "bio": {
+        "en": "Personal trainer and sports nutrition coach. Custom training and nutrition programs to build muscle, lose fat, and hit your goals — from beginners to athletes.",
+        "ar": "مدرّب شخصي واختصاصي تغذية رياضية. تجهيز برامج تدريب وتغذية رياضية مخصّصة لبناء العضل، خسارة الدهون، وتحقيق أهدافك — من المبتدئ للرياضي."
+      },
+      "badges": [
+        { "en": "Personal Trainer", "ar": "مدرّب شخصي" },
+        { "en": "Sports Nutrition", "ar": "تغذية رياضية" },
+        { "en": "Online Coaching", "ar": "تدريب أونلاين" }
+      ],
+      "stats": [
+        { "num": { "en": "40K+", "ar": "+40K" }, "label": { "en": "Followers", "ar": "متابع" } },
+        { "num": { "en": "844K", "ar": "844K" }, "label": { "en": "Likes", "ar": "إعجاب" } },
+        { "num": { "en": "24/7", "ar": "24/7" }, "label": { "en": "Coaching", "ar": "متابعة" } }
+      ]
+    }
+  },
+
+  "eman-k5f9a3": {
+    "name": { "en": "Eman Kobrosly", "ar": "إيمان قبرصلي" },
+    "whatsapp": "96176059353",
+    "instagram": "https://www.instagram.com/dietitian.eman.kobrosly/",
+    "tiktok": "",
+    "aboutImage": "/clients/eman-k5f9a3/about.webp",
+    "heroImage": "/hero.webp",
+    "profile": {
+      "bio": {
+        "en": "Licensed clinical and bariatric dietitian and community nutritionist based in Saida, with online consultations. Personalized nutrition for weight management, pre- and post-bariatric surgery, and everyday healthy living.",
+        "ar": "أخصائية تغذية سريرية وعلاجية للسمنة (باريتريك)، وأخصائية تغذية مجتمعية في صيدا مع استشارات أونلاين. تغذية مخصّصة لإدارة الوزن، وما قبل وبعد جراحات السمنة، والحياة الصحية اليومية."
+      },
+      "badges": [
+        { "en": "Licensed Clinical Dietitian", "ar": "أخصائية تغذية سريرية مجازة" },
+        { "en": "Bariatric Dietitian", "ar": "أخصائية تغذية للسمنة" },
+        { "en": "Saida · Online", "ar": "صيدا · أونلاين" }
+      ],
+      "stats": [
+        { "num": { "en": "5K+", "ar": "+5K" }, "label": { "en": "Followers", "ar": "متابع" } },
+        { "num": { "en": "Bariatric", "ar": "باريتريك" }, "label": { "en": "Specialist", "ar": "اختصاص" } },
+        { "num": { "en": "Online", "ar": "أونلاين" }, "label": { "en": "& In Saida", "ar": "وصيدا" } }
+      ]
+    }
   }
 }
