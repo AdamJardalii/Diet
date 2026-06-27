@@ -4,9 +4,9 @@ import { Heart, Soup, Scale, Apple, Salad, Wheat, Citrus, Leaf, Grape } from 'lu
 import { asset } from '@/lib/asset';
 
 const points = [
-  { Icon: Heart, key: 'point1', img: '/balanced1.webp' },
-  { Icon: Soup, key: 'point2', img: '/balanced2.webp' },
-  { Icon: Scale, key: 'point3', img: '/balanced3.webp' },
+  { Icon: Heart, key: 'point1', img: '/balanced1.webp', alt: 'Lebanese mezze plate' },
+  { Icon: Soup, key: 'point2', img: '/balanced2.webp', alt: 'Fresh Lebanese salad with bread' },
+  { Icon: Scale, key: 'point3', img: '/balanced3.webp', alt: 'Balanced nutrition bowl' },
 ];
 
 // Food icons that gently drift in the background as you scroll to the section.
@@ -56,29 +56,31 @@ export default function BalancedDiet() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {points.map(({ Icon, key, img }, i) => (
+          {points.map(({ Icon, key, img, alt }, i) => (
             <motion.div
               key={key}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12, duration: 0.5 }}
-              className="group bg-background rounded-2xl border border-border/50 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
+              className="group relative bg-background rounded-2xl border border-border/50 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
             >
               <div className="relative h-44 overflow-hidden">
                 <img
                   src={asset(img)}
-                  alt={t(`balanced.${key}_title`)}
+                  alt={alt}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                <div className="absolute -bottom-6 left-5 rtl:left-auto rtl:right-5 w-12 h-12 rounded-xl bg-background shadow-md ring-1 ring-gold/30 flex items-center justify-center text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-                  <Icon className="w-6 h-6" />
-                </div>
               </div>
-              <div className="p-6 pt-9">
+              {/* Icon badge straddles the image edge — kept OUTSIDE the image's
+                  overflow-hidden box so it isn't clipped. */}
+              <div className="absolute top-44 left-5 rtl:left-auto rtl:right-5 -translate-y-1/2 w-12 h-12 rounded-xl bg-background shadow-md ring-1 ring-gold/30 flex items-center justify-center text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+                <Icon className="w-6 h-6" />
+              </div>
+              <div className="p-6 pt-8">
                 <h3 className="text-lg font-bold text-foreground mb-2">{t(`balanced.${key}_title`)}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t(`balanced.${key}_desc`)}</p>
               </div>
